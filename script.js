@@ -18,7 +18,7 @@ function updateCountdown() {
     hoursEl.textContent = "00";
     minutesEl.textContent = "00";
     secondsEl.textContent = "00";
-    document.title = "Fatality 614 Countdown";
+    document.title = "Fatality 614 Beta Countdown";
     return;
   }
 
