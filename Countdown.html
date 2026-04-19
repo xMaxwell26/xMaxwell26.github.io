@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Countdown to May 1st</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Countdown to FATALITY</h1>
+    <div class="countdown" id="countdown">Loading...</div>
+  </div>
+
+  <script>
+    function getNextMayFirst() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+
+      // May is month 4 (0-indexed)
+      let target = new Date(currentYear, 4, 1, 0, 0, 0);
+
+      // If we've passed May 1st this year, go to next year
+      if (now > target) {
+        target = new Date(currentYear + 1, 4, 1, 0, 0, 0);
+      }
+
+      return target;
+    }
+
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = getNextMayFirst();
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownEl.innerText = "It's May 1st!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
