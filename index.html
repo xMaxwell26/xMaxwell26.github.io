@@ -2,75 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Countdown to May 1st</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    .countdown {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fatality 614 Countdown</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Countdown to FATALITY</h1>
-    <div class="countdown" id="countdown">Loading...</div>
-  </div>
+  <div class="bg-glow bg-glow-left"></div>
+  <div class="bg-glow bg-glow-right"></div>
+  <div class="bg-vignette"></div>
 
-  <script>
-    function getNextMayFirst() {
-      const now = new Date();
-      const currentYear = now.getFullYear();
+  <main class="page-wrap">
+    <section class="hero">
+      <header class="logo-wrap">
+        <h1 class="logo-title">FATALITY</h1>
+        <div class="logo-swoosh"></div>
+        <div class="logo-sub">614</div>
+      </header>
 
-      // May is month 4 (0-indexed)
-      let target = new Date(currentYear, 4, 1, 0, 0, 0);
+      <section class="countdown-shell">
+        <div class="ornament ornament-top">✦</div>
 
-      // If we've passed May 1st this year, go to next year
-      if (now > target) {
-        target = new Date(currentYear + 1, 4, 1, 0, 0, 0);
-      }
+        <div class="panel-label">LAUNCHING IN</div>
 
-      return target;
-    }
+        <div class="countdown-grid">
+          <article class="time-box">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            <div class="time-inner">
+              <div class="time-value" id="days">00</div>
+              <div class="time-unit">DAYS</div>
+            </div>
+          </article>
 
-    const countdownEl = document.getElementById("countdown");
-    const targetDate = getNextMayFirst();
+          <article class="time-box">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            <div class="time-inner">
+              <div class="time-value" id="hours">00</div>
+              <div class="time-unit">HOURS</div>
+            </div>
+          </article>
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
+          <article class="time-box">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            <div class="time-inner">
+              <div class="time-value" id="minutes">00</div>
+              <div class="time-unit">MINUTES</div>
+            </div>
+          </article>
 
-      if (diff <= 0) {
-        countdownEl.innerText = "It's May 1st!";
-        return;
-      }
+          <article class="time-box">
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+            <div class="time-inner">
+              <div class="time-value" id="seconds">00</div>
+              <div class="time-unit">SECONDS</div>
+            </div>
+          </article>
+        </div>
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+        <div class="launch-date">
+          FRIDAY <span>·</span> MAY 1, 2026
+        </div>
 
-      countdownEl.innerText =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
+        <div class="ornament ornament-bottom">✦</div>
+      </section>
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+      <nav class="footer-links">
+        <a href="#">DISCORD</a>
+        <a href="#">FORUMS</a>
+        <a href="#">TRAILER</a>
+      </nav>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
