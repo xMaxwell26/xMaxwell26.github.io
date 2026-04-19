@@ -23,12 +23,13 @@
     <section class="hero">
       <header class="logo-wrap">
         <h1 class="logo-title">FATALITY</h1>
-        <div class="logo-swoosh"></div>
+        <div class="logo-swoosh" aria-hidden="true"></div>
         <div class="logo-sub">614</div>
+        <p class="hero-subtitle">BETA COUNTDOWN</p>
       </header>
 
-      <section class="countdown-shell">
-        <div class="ornament ornament-top">✦</div>
+      <section class="countdown-shell" aria-label="Countdown to beta launch">
+        <div class="ornament ornament-top" aria-hidden="true">✦</div>
 
         <div class="panel-label">LAUNCHING BETA IN</div>
 
@@ -82,14 +83,20 @@
           FRIDAY <span>·</span> MAY 1, 2026
         </div>
 
-        <div class="ornament ornament-bottom">✦</div>
+        <div class="ornament ornament-bottom" aria-hidden="true">✦</div>
       </section>
 
-      <nav class="footer-links">
-  <a href="https://discord.gg/fatality614" target="_blank" rel="noopener noreferrer">DISCORD</a>
-  <a href="https://forum.fatalityrsps.com/" target="_blank" rel="noopener noreferrer">FORUMS</a>
-  <a href="https://fatalityrsps.com/" target="_blank" rel="noopener noreferrer">MAIN SITE</a>
-</nav>
+      <nav class="footer-links" aria-label="External links">
+        <a href="https://discord.gg/fatality614" target="_blank" rel="noopener noreferrer">DISCORD</a>
+        <a href="https://forum.fatalityrsps.com/" target="_blank" rel="noopener noreferrer">FORUMS</a>
+        <a href="https://fatalityrsps.com/" target="_blank" rel="noopener noreferrer">MAIN SITE</a>
+      </nav>
+
+      <noscript>
+        <p class="noscript-message">
+          JavaScript is required to display the live countdown.
+        </p>
+      </noscript>
     </section>
   </main>
 
