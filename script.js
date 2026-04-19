@@ -5,8 +5,8 @@ const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 
-function pad(value) {
-  return String(value).padStart(2, "0");
+function pad(num) {
+  return String(num).padStart(2, "0");
 }
 
 function updateCountdown() {
@@ -18,16 +18,15 @@ function updateCountdown() {
     hoursEl.textContent = "00";
     minutesEl.textContent = "00";
     secondsEl.textContent = "00";
-    document.title = "Fatality 614 Beta Countdown";
     return;
   }
 
-  const totalSeconds = Math.floor(diff / 1000);
+  const total = Math.floor(diff / 1000);
 
-  const days = Math.floor(totalSeconds / 86400);
-  const hours = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+  const days = Math.floor(total / 86400);
+  const hours = Math.floor((total % 86400) / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const seconds = total % 60;
 
   daysEl.textContent = pad(days);
   hoursEl.textContent = pad(hours);
